@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminLoginController;
 use App\Http\Controllers\admin\HomeController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,12 @@ use App\Http\Controllers\admin\HomeController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+ 
+// Route::get('/users/{user}', function (User $user) {
+//     return $user->email;
+// });
 
 Route::group(['prefix'=>'admin'],function(){
     Route::group(['middleware'=>'admin.guest'],function(){
